@@ -12,4 +12,4 @@ Open the `newtab.html` page in a chrome browser.
 
 ## Testing as an extension
 
-Follow the instructions to load an [unpacked extension](https://developer.chrome.com/docs/extensions/mv3/getstarted/development-basics/#load-unpacked, then open a new tab.
+Follow the instructions to load an [unpacked extension](https://developer.chrome.com/docs/extensions/mv3/getstarted/development-basics/#load-unpacked), then open a new tab.
