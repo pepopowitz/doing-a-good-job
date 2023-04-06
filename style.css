@@ -12,6 +12,13 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License. */
 
+body {
+  background-image: url(images/background.jpg);
+  background-size: cover;
+}
+
+/* 2raddads -- everything below is probably garbage */
+
 h1 {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }

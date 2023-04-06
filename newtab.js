@@ -1,12 +1,12 @@
 'use strict';
 
-const sites_div = document.getElementById('display_top');
+const main = document.querySelector('main');
 
 const createTop = () => {
   const div = document.createElement('div');
   div.className = 'colorFun';
   div.innerText = '2raddads';
-  sites_div.appendChild(div);
+  main.appendChild(div);
 };
 
 createTop();
