@@ -2,14 +2,15 @@
 
 const main = document.querySelector('main');
 
-const createTop = () => {
-  const div = document.createElement('div');
-  div.className = 'colorFun';
-  div.innerText = '2raddads';
-  main.appendChild(div);
-};
+// 2raddads -- this is how we inject dynamic info into the screen
+// const createTop = () => {
+//   const div = document.createElement('div');
+//   div.className = 'colorFun';
+//   div.innerText = '2raddads';
+//   main.appendChild(div);
+// };
 
-createTop();
+// createTop();
 
 // 2raddads - this is maybe how we'll do local storage
 // function setToDo() {
