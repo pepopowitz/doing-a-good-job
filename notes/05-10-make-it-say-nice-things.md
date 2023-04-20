@@ -10,7 +10,9 @@
 ### Agenda
 
 1. Orient ourselves
-2. Smash 1s and 0s
-3. Switch drivers! Then smash some more 1s and 0s.
-4. Wrap it up
+2. Change the name of the extension (in manifest.json)
+3. Talk about how we're going to data-drive the messages
+4. Start data-driving the messages!
+5. Switch drivers! Then smash some more 1s and 0s.
+6. Wrap it up
    1. What did we learn?
