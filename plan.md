@@ -6,7 +6,7 @@
   - [x] stub out placeholder text
   - [ ] make it look nicer
 
-- time
+- [x] time
 
 - see a pretty image background
   - can I get this from https://unsplash.com/documentation#get-a-random-photo ????
