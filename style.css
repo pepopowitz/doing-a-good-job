@@ -5,5 +5,7 @@ body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   color: #fff;
   text-shadow: 2px 2px 2px BLACK, -1px -1px 2px black, -1px 1px 2px black, 1px -1px 2px black;
+  margin: 0 auto;
+  width: 900px;
 }
 
