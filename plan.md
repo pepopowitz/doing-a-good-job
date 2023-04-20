@@ -3,9 +3,8 @@
 - [!] build out a static version
 
   - [x] background image
-  - [ ] stub out placeholder text
+  - [x] stub out placeholder text
   - [ ] make it look nicer
-    - Start here!!!
 
 - time
 
@@ -17,5 +16,7 @@
 - define a bunch of inspiring messages
 
   - localstorage???
+  - indexedDb????
 
 - current temperature
+- see one of multiple headlines (You're doing a great job!)
