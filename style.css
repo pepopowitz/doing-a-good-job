@@ -8,11 +8,8 @@ body {
   height: 100%;
   margin: 0;
 }
-
-#content {
-  margin: 0 auto;
-  width: 900px;
-  position: relative;
+p {
+  margin: 0;
 }
 
 #background {
@@ -25,4 +22,33 @@ body {
   bottom: 0;
   left: 0;
   right: 0;
+}
+
+#content {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  max-width: 900px;
+  position: relative;
+  height: 100vh;
+  justify-content: space-evenly;
+}
+
+#content main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#content aside {
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  background-color: #33333366;
+  padding: 1em;
+}
+
+#content h2 {
+  margin-top: 0;
 }
