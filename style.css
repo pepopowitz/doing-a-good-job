@@ -2,7 +2,8 @@ body {
   font-size: 32px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   color: #fff;
-  text-shadow: 2px 2px 2px #999, -1px -1px 2px #999, -1px 1px 2px #999, 1px -1px 2px #999;
+  --blur-radius: 8px;
+  text-shadow: 2px 2px var(--blur-radius) #444, -1px -1px var(--blur-radius) #444, -1px 1px var(--blur-radius) #444, 1px -1px var(--blur-radius) #444;
   width: 100%;
   height: 100%;
   margin: 0;
@@ -11,6 +12,7 @@ body {
 #content {
   margin: 0 auto;
   width: 900px;
+  position: relative;
 }
 
 #background {
