@@ -1,6 +1,6 @@
 body {
   font-size: 32px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: "Gill Sans", Tahoma, Verdana, Geneva, sans-serif;
   color: #fff;
   --blur-radius: 8px;
   text-shadow: 2px 2px var(--blur-radius) #444, -1px -1px var(--blur-radius) #444, -1px 1px var(--blur-radius) #444, 1px -1px var(--blur-radius) #444;
