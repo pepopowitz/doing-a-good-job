@@ -2,8 +2,6 @@
   "name": "You are doing a good job!",
   "version": "1.0.0",
   "description": "Please don't forget that you are doing a good job.",
-  "permissions": ["storage"],
-  "optional_permissions": ["topSites"],
   "icons": {
     "16": "images/icon16.png",
     "32": "images/icon32.png",
