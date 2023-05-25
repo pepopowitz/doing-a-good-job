@@ -11,5 +11,11 @@
   "chrome_url_overrides": {
     "newtab": "newtab.html"
   },
-  "manifest_version": 3
+  "manifest_version": 3,
+  "web_accessible_resources": [
+    {
+      "resources": ["data/praise.json"],
+      "matches": ["<all_urls>"]
+    }
+  ]
 }
