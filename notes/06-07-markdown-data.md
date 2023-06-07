@@ -10,3 +10,4 @@
 5. Switch drivers! Then smash some more 1s and 0s.
 6. Wrap it up
    1. What did we learn?
+   2. Next stream -- it may be a while!
