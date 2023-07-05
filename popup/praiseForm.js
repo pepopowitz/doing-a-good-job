@@ -4,16 +4,17 @@ const handleConfigSubmit = (event) => {
   event.preventDefault();
   // TODO: finish connecting this form submit handler!!!
   const praiseElement = document.querySelector('#praiseMarkdown');
-  const praiseValue = praiseElement.value;
+  const praiseString = praiseElement.value;
+  const praiseArray = praiseString.split('\n\n---\n\n');
 
-  chrome.storage.local.set({ praiseMarkdown: praiseValue });
+  chrome.storage.local.set({ praiseMarkdown: praiseArray });
 };
 
 function readValue() {
   chrome.storage.local.get('praiseMarkdown').then((result) => {
     console.log('Value currently is ' + JSON.stringify(result, null, 2));
 	const praiseElement = document.querySelector('#praiseMarkdown');
-	praiseElement.value = result.praiseMarkdown;
+	praiseElement.value = result.praiseMarkdown.join('\n\n---\n\n');
   });
 }
 
