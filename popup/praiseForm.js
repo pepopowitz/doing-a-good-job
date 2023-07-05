@@ -7,12 +7,13 @@ const handleConfigSubmit = (event) => {
   const praiseValue = praiseElement.value;
 
   chrome.storage.local.set({ praiseMarkdown: praiseValue });
-  readValue();
 };
 
 function readValue() {
   chrome.storage.local.get('praiseMarkdown').then((result) => {
     console.log('Value currently is ' + JSON.stringify(result, null, 2));
+	const praiseElement = document.querySelector('#praiseMarkdown');
+	praiseElement.value = result.praiseMarkdown;
   });
 }
 
