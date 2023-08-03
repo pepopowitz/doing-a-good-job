@@ -10,17 +10,16 @@ function getRandomInt(max) {
 }
 
 function setPraise() {
-  // TODO: get the praise from local storage instead of a json file
-  const url = chrome.runtime.getURL('data/praise.json');
+  chrome.storage.local.get('praiseMarkdown').then((result) => {
+    const praises = result.praiseMarkdown;
+    const randomIndex = getRandomInt(praises.length);
+    const praise = praises[randomIndex];
 
-  fetch(url)
-    .then((response) => response.json())
-    .then((json) => {
-      const { praises } = json;
-      const praisePara = document.querySelector('#praise');
-      const randomIndex = getRandomInt(praises.length);
-      praisePara.innerHTML = praises[randomIndex];
-    });
+    const praiseHtml = marked.parse(praise);
+
+    const praisePara = document.querySelector('#praise');
+    praisePara.innerHTML = praiseHtml;
+  });
 }
 
 setCurrentTime();

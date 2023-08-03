@@ -1,5 +1,3 @@
-console.log('helloooo', marked);
-
 const handleConfigSubmit = (event) => {
   event.preventDefault();
   const praiseElement = document.querySelector('#praiseMarkdown');
