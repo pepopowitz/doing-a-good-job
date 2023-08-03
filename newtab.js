@@ -10,6 +10,7 @@ function getRandomInt(max) {
 }
 
 function setPraise() {
+  // TODO: get the praise from local storage instead of a json file
   const url = chrome.runtime.getURL('data/praise.json');
 
   fetch(url)
