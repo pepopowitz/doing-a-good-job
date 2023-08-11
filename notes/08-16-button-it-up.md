@@ -1,7 +1,8 @@
 **#** Agenda
 
 1. Follow-up
-   1. Steve might have his audio better?
+   1. Did you like my gift?
+   2. Steve might have his audio better?
 2. Orient ourselves
 3. Performance profiling
 4. Switch drivers?
