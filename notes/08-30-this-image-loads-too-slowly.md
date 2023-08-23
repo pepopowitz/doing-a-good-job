@@ -4,6 +4,9 @@ You're Doing A Good Job! And can we make the image load faster?
 
 1. Follow-up
    1. How is steve going to f up his audio this time?
+   2. Show & tell - floaty heads in countdown video
+      1. remove.bg
+      2. temperature in figma
 2. Orient ourselves
 3. Move api key out of code
 4. Cache image for a certain amount of time
