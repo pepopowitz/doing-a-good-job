@@ -2,6 +2,18 @@
 
 const { unsplashClientId } = window;
 
+async function getRandomUnsplashImageURL() {
+  const collectionId = '11649432';
+  const orientation = 'landscape';
+  const apiEndpoint = `https://api.unsplash.com/photos/random/?client_id=${unsplashClientId}&collections=${collectionId}&orientation=${orientation}`;
+
+  const response = await fetch(apiEndpoint);
+  const image = await response.json();
+  const imageURL = image.urls.raw.split('?')[0];
+
+  return `${imageURL}?q=75&fm=webp&w=4000`;
+}
+
 async function setBackgroundImage() {
   // check to see if I have the URL in local storage
   //   and it's not expired
@@ -10,17 +22,17 @@ async function setBackgroundImage() {
   //   and save the URL in local storage
   //   and use that
 
-  const collectionId = '11649432';
-  const orientation = 'landscape';
-  const apiEndpoint = `https://api.unsplash.com/photos/random/?client_id=${unsplashClientId}&collections=${collectionId}&orientation=${orientation}`;
-
-  const response = await fetch(apiEndpoint);
-  const image = await response.json();
-  const imageURL = image.urls.raw.split('?')[0];
-  const optimizedImageURL = `${imageURL}?q=75&fm=webp&w=4000`;
+  let imageURL;
+  const cachedImageURL = await chrome.storage.local.get('unsplashImageURL');
+  if (cachedImageURL.unsplashImageURL) {
+    imageURL = cachedImageURL.unsplashImageURL;
+  } else {
+    imageURL = await getRandomUnsplashImageURL();
+    chrome.storage.local.set({ unsplashImageURL: imageURL });
+  }
 
   var element = document.getElementById('background');
-  element.style.backgroundImage = `url('${optimizedImageURL}')`;
+  element.style.backgroundImage = `url('${imageURL}')`;
 }
 
 function setCurrentTime() {
