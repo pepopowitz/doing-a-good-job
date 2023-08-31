@@ -2,7 +2,7 @@
 
 const { unsplashClientId } = window;
 
-function setBackgroundImage() {
+async function setBackgroundImage() {
   // check to see if I have the URL in local storage
   //   and it's not expired
   // if so, use that
@@ -14,16 +14,13 @@ function setBackgroundImage() {
   const orientation = 'landscape';
   const apiEndpoint = `https://api.unsplash.com/photos/random/?client_id=${unsplashClientId}&collections=${collectionId}&orientation=${orientation}`;
 
-  fetch(apiEndpoint)
-    .then((response) => response.json())
-    .then((data) => {
-      const { raw } = data.urls;
-      const rawBase = raw.split('?')[0];
-      const fixedBase = `${rawBase}?q=75&fm=webp&w=4000`;
+  const response = await fetch(apiEndpoint);
+  const image = await response.json();
+  const imageURL = image.urls.raw.split('?')[0];
+  const optimizedImageURL = `${imageURL}?q=75&fm=webp&w=4000`;
 
-      var element = document.getElementById('background');
-      element.style.backgroundImage = `url('${fixedBase}')`;
-    });
+  var element = document.getElementById('background');
+  element.style.backgroundImage = `url('${optimizedImageURL}')`;
 }
 
 function setCurrentTime() {
@@ -48,7 +45,9 @@ function setPraise() {
   });
 }
 
-setCurrentTime();
-setPraise();
-setInterval(setCurrentTime, 1000);
-setBackgroundImage();
+(async () => {
+  setCurrentTime();
+  setPraise();
+  setInterval(setCurrentTime, 1000);
+  await setBackgroundImage();
+})();
