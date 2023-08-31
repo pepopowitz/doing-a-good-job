@@ -3,6 +3,13 @@
 const { unsplashClientId } = window;
 
 function setBackgroundImage() {
+  // check to see if I have the URL in local storage
+  //   and it's not expired
+  // if so, use that
+  // if not, go get another
+  //   and save the URL in local storage
+  //   and use that
+
   const collectionId = '11649432';
   const orientation = 'landscape';
   const apiEndpoint = `https://api.unsplash.com/photos/random/?client_id=${unsplashClientId}&collections=${collectionId}&orientation=${orientation}`;
