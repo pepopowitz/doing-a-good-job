@@ -1,11 +1,11 @@
 'use strict';
 
-const { unsplashClientId } = window;
-
 async function getRandomUnsplashImageURL() {
+  const { unsplashAPIKey } = await chrome.storage.local.get('unsplashAPIKey');
+  console.log(unsplashAPIKey);
   const collectionId = '11649432';
   const orientation = 'landscape';
-  const apiEndpoint = `https://api.unsplash.com/photos/random/?client_id=${unsplashClientId}&collections=${collectionId}&orientation=${orientation}`;
+  const apiEndpoint = `https://api.unsplash.com/photos/random/?client_id=${unsplashAPIKey}&collections=${collectionId}&orientation=${orientation}`;
 
   const response = await fetch(apiEndpoint);
   const image = await response.json();
