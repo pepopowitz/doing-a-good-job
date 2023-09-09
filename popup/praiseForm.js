@@ -4,27 +4,28 @@ const handleConfigSubmit = (event) => {
   const praiseString = praiseElement.value;
   const praiseArray = praiseString.split('\n\n---\n\n');
 
-  // TODO: convert markdown to html
+  const unsplashKey = document.querySelector('#unsplashKey').value;
 
-  chrome.storage.local.set({ praiseMarkdown: praiseArray });
+  chrome.storage.local.set({ unsplashKey, praiseMarkdown: praiseArray });
 };
 
-function readValue() {
-  chrome.storage.local.get('praiseMarkdown').then((result) => {
-    console.log('Value currently is ' + JSON.stringify(result, null, 2));
-    const praiseElement = document.querySelector('#praiseMarkdown');
-    praiseElement.value = result.praiseMarkdown.join('\n\n---\n\n');
-  });
+function readValues() {
+  chrome.storage.local
+    .get(['unsplashKey', 'praiseMarkdown'])
+    .then(({ unsplashKey, praiseMarkdown }) => {
+      const unsplashKeyElement = document.querySelector('#unsplashKey');
+      unsplashKeyElement.value = unsplashKey;
+
+      const praiseElement = document.querySelector('#praiseMarkdown');
+      praiseElement.value = praiseMarkdown.join('\n\n---\n\n');
+    });
 }
 
 const initializeForm = () => {
   const [form] = document.getElementsByTagName('form');
-  // form.addEventListener("reset", handleConfigReset);
   form.addEventListener('submit', handleConfigSubmit);
-  // setFormValues();
 
-  // setListItems();
-  readValue();
+  readValues();
 };
 
 window.addEventListener('load', initializeForm);
