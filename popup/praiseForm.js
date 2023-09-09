@@ -4,17 +4,17 @@ const handleConfigSubmit = (event) => {
   const praiseString = praiseElement.value;
   const praiseArray = praiseString.split('\n\n---\n\n');
 
-  const unsplashKey = document.querySelector('#unsplashKey').value;
+  const unsplashAPIKey = document.querySelector('#unsplashAPIKey').value;
 
-  chrome.storage.local.set({ unsplashKey, praiseMarkdown: praiseArray });
+  chrome.storage.local.set({ unsplashAPIKey, praiseMarkdown: praiseArray });
 };
 
 function readValues() {
   chrome.storage.local
-    .get(['unsplashKey', 'praiseMarkdown'])
-    .then(({ unsplashKey, praiseMarkdown }) => {
-      const unsplashKeyElement = document.querySelector('#unsplashKey');
-      unsplashKeyElement.value = unsplashKey;
+    .get(['unsplashAPIKey', 'praiseMarkdown'])
+    .then(({ unsplashAPIKey, praiseMarkdown }) => {
+      const unsplashKeyElement = document.querySelector('#unsplashAPIKey');
+      unsplashKeyElement.value = unsplashAPIKey;
 
       const praiseElement = document.querySelector('#praiseMarkdown');
       praiseElement.value = praiseMarkdown.join('\n\n---\n\n');
