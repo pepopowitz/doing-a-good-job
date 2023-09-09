@@ -3,17 +3,31 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>Praise editor</h1>
-    <p>Enter or edit some praise markdown below.</p>
+    <h1>You're Doing A Good Job!</h1>
+    <h2>Configuration</h2>
     <form>
-      <p>
-        <label for="praiseMarkdown">Praise Markdown</label>
-        <textarea name="praiseMarkdown" id="praiseMarkdown"></textarea>
-      </p>
-      <p>
-        <button type="reset">Reset</button>
+      <div>
         <button type="submit">Update</button>
-      </p>
+      </div>
+      <fieldset>
+        <legend>Unsplash API key</legend>
+        <p>Enter an Unsplash API access key, to see beautiful images.</p>
+        <div>
+          <label for="unsplashKey">API access key</label>
+          <input type="text" name="unsplashKey" id="unsplashKey" />
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>Praise markdown</legend>
+        <p>
+          Enter praise markdown below. Individual praises should be separated by
+          `---`.
+        </p>
+        <div>
+          <label for="praiseMarkdown">Praise Markdown</label>
+          <textarea name="praiseMarkdown" id="praiseMarkdown"></textarea>
+        </div>
+      </fieldset>
     </form>
     <script src="praiseForm.js"></script>
   </body>
