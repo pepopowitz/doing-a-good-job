@@ -28,7 +28,7 @@ async function setBackgroundImage() {
 
     // note: window.setTimeout(() => chrome.storage.local.remove...) does not work
     //   because I will likely have exited the tab before the timeout lapses
-    const cacheExpiration = new Date().getTime() + cacheDuration;
+    const cacheExpiration = now + cacheDuration;
     chrome.storage.local.set({
       unsplashImageURL: imageURL,
       expiresAt: cacheExpiration,
