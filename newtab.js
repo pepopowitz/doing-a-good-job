@@ -15,20 +15,24 @@ async function getRandomUnsplashImageURL() {
 }
 
 async function setBackgroundImage() {
-  // check to see if I have the URL in local storage
-  //   and it's not expired
-  // if so, use that
-  // if not, go get another
-  //   and save the URL in local storage
-  //   and use that
-
+  const cacheDuration = 1000 * 60 * 60; // 1 hour
+  const now = new Date().getTime();
   let imageURL;
-  const cachedImageURL = await chrome.storage.local.get('unsplashImageURL');
-  if (cachedImageURL.unsplashImageURL) {
-    imageURL = cachedImageURL.unsplashImageURL;
+
+  const { unsplashImageURL, expiresAt } = await chrome.storage.local.get();
+
+  if (unsplashImageURL && expiresAt > now) {
+    imageURL = unsplashImageURL;
   } else {
     imageURL = await getRandomUnsplashImageURL();
-    chrome.storage.local.set({ unsplashImageURL: imageURL });
+
+    // note: window.setTimeout(() => chrome.storage.local.remove...) does not work
+    //   because I will likely have exited the tab before the timeout lapses
+    const cacheExpiration = now + cacheDuration;
+    chrome.storage.local.set({
+      unsplashImageURL: imageURL,
+      expiresAt: cacheExpiration,
+    });
   }
 
   var element = document.getElementById('background');
