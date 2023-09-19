@@ -42,12 +42,20 @@ p {
 }
 
 #content aside {
+  backdrop-filter: blur(2px);
   align-self: center;
   display: flex;
   flex-direction: column;
   max-width: 500px;
   background-color: #33333366;
   padding: 1em;
+  animation: fadein 20s;
+}
+
+@keyframes fadein {
+  0% { opacity: 0 }
+  95% { opacity: 0 }
+  100% { opacity: 1}
 }
 
 #content h2 {
