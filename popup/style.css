@@ -1,3 +1,30 @@
 #praiseMarkdown {
   height: 300px;
 }
+
+form {
+  width: 400px;
+}
+
+label {
+  margin: 0;
+  display: block;
+  height: 0;
+  visibility: hidden;
+}
+
+input, textarea {
+  width: 100%;
+}
+
+fieldset {
+  margin: 20px 0;
+}
+
+fieldset p {
+  font-style: italic;
+}
+
+legend {
+  font-weight: bold;
+}

@@ -1,11 +1,10 @@
 'use strict';
 
-const { unsplashClientId } = window;
-
 async function getRandomUnsplashImageURL() {
+  const { unsplashAPIKey } = await chrome.storage.local.get('unsplashAPIKey');
   const collectionId = '11649432';
   const orientation = 'landscape';
-  const apiEndpoint = `https://api.unsplash.com/photos/random/?client_id=${unsplashClientId}&collections=${collectionId}&orientation=${orientation}`;
+  const apiEndpoint = `https://api.unsplash.com/photos/random/?client_id=${unsplashAPIKey}&collections=${collectionId}&orientation=${orientation}`;
 
   const response = await fetch(apiEndpoint);
   const image = await response.json();
@@ -48,22 +47,22 @@ function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
 
-function setPraise() {
-  chrome.storage.local.get('praiseMarkdown').then((result) => {
-    const praises = result.praiseMarkdown;
-    const randomIndex = getRandomInt(praises.length);
-    const praise = praises[randomIndex];
+async function setPraise() {
+  const result = await chrome.storage.local.get('praiseMarkdown');
 
-    const praiseHtml = marked.parse(praise);
+  const praises = result.praiseMarkdown;
+  const randomIndex = getRandomInt(praises.length);
+  const praise = praises[randomIndex];
 
-    const praisePara = document.querySelector('#praise');
-    praisePara.innerHTML = praiseHtml;
-  });
+  const praiseHtml = marked.parse(praise);
+
+  const praisePara = document.querySelector('#praise');
+  praisePara.innerHTML = praiseHtml;
 }
 
 (async () => {
   setCurrentTime();
-  setPraise();
+  await setPraise();
   setInterval(setCurrentTime, 1000);
   await setBackgroundImage();
 })();
